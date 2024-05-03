@@ -1,0 +1,142 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{beamerthemeprinceton}[2023/06/27 A class for Princeton University presentations]
+
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\RequirePackage{backgroundimage}
+
+% Variables
+\newcommand\insertauthortitle{}  % Empty by default.
+\newcommand\authortitle[1]{\renewcommand\insertauthortitle{#1}}
+
+\newcommand\insertevent{}  % Empty by default.
+\newcommand\event[1]{\renewcommand\insertevent{#1}}
+
+\newcommand\insertlocation{}  % Empty by default.
+\newcommand\location[1]{\renewcommand\insertlocation{#1}}
+
+\newcommand\insercoverpicture{test.png}  % Empty by default.
+\newcommand\coverpicture[1]{\renewcommand\insercoverpicture{#1}}
+
+\newcommand\inserttitlefooter{}  % Empty by default.
+\newcommand\titlefooter[1]{\renewcommand\inserttitlefooter{#1}}
+
+\newcommand\insertauthorfooter{}  % Empty by default.
+\newcommand\authorfooter[1]{\renewcommand\insertauthorfooter{#1}}
+
+\newcommand\insertaffiliationfooter{}  % Empty by default.
+\newcommand\affiliationfooter[1]{\renewcommand\insertaffiliationfooter{#1}}
+
+\newcommand\inserteventfooter{}  % Empty by default.
+\newcommand\eventfooter[1]{\renewcommand\inserteventfooter{#1}}
+
+\newcommand\insertdatefooter{}  % Empty by default.
+\newcommand\datefooter[1]{\renewcommand\insertdatefooter{#1}}
+
+
+% Settings
+\usefonttheme{princeton}
+\usecolortheme{princeton}
+\useinnertheme{princeton}
+\useoutertheme{princeton}
+% \usefonttheme[onlymath]{serif}
+
+% Create new iframe environment
+% -----------------------------
+
+\newlength{\iframe@xshift}
+\newlength{\iframe@yshift}
+
+
+\define@key{iframe}{image}{\def\iframe@image{#1}}%
+\define@key{iframe}{xshift}{\setlength\iframe@xshift{#1}}
+\define@key{iframe}{yshift}{\setlength\iframe@yshift{#1}}
+
+\setkeys{iframe}{image=example-image-a,xshift=0pt,yshift=0pt}%
+
+
+% Optional argument will be split between <;>
+% Everything before will be beamer options
+% Everything after will be iframe options
+\NewDocumentEnvironment{iframe}{d<> >{\SplitArgument{1}{;}} o m o}{% 
+  % Assign key values to beamerframe and iframe
+  \IfValueT{#2}{\iframe@setkeys #2}%
+    % If optional arguments are given use them
+    \IfValueT{#4}{\setkeys{iframe}{#4}}%
+
+  % \IfValueF{#1}{\IfValueF{#3}{}}%
+    \backgroundimage[%
+    xshift=\iframe@xshift,
+      yshift=\iframe@yshift,
+      ]{\iframe@image}%
+
+    \IfValueTF{#1}{% True Overlay
+    \IfValueTF{#3}{% True Title
+      \begin{frame}<#1>[fragile,environment=iframe]{#3}
+      }{% False Title
+        \begin{frame}<#1>[fragile,environment=iframe]
+        }}{% False Overlay
+     \IfValueTF{#3}{% True Title
+      \begin{frame}[fragile,environment=iframe]{#3}
+      }{% False Overlay
+        \begin{frame}<#1>[fragile,environment=iframe]
+        }%
+      }%
+}{%
+  % \iframe@image #3% #1% #4 #3
+  \end{frame} 
+}
+
+
+
+% Internal Function to deal with the spitted arguments
+\def\iframe@setkeys#1#2{%
+    \presetkeys{beamerframe}{#1}{}
+    \IfValueT{#2}{\setkeys{iframe}{#2}}
+  }
+
+% Fix indent of items
+
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+
+\settowidth{\leftmarginii}{\usebeamertemplate{itemize subitem}}
+\addtolength{\leftmarginii}{\labelsep}
+
+%\setlength{\leftmarginii}{12pt}
+%\setlength{\leftmargini}{12pt}
+
+%\setbeamertemplate{frametitle}{\insertframetitle\vspace{-5mm}}
+
+% Fix itemsep
+
+\RequirePackage{xpatch}
+
+
+
+\xpatchcmd{\itemize}
+  {\def\makelabel}
+  {\setlength{\itemsep}{-.0ex}\def\makelabel}
+  {}
+  {}
+
+% \addtobeamertemplate{alertblock begin}{\setlength{\leftmargini}{12pt}}
+
+
+% new commands 
+  \newcommand{\citetext}[1]{ {\scriptsize \hfill\color{princeton@color@1}  $\rightarrow$ #1 } }
+
+  \newcommand{\alertmath}[1]{ {\color{princeton@color@orange}\bm{#1} } }
+  
+\mode<all>
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

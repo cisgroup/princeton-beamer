@@ -1,0 +1,90 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerinnerthemeprinceton}[2023/06/27 Princeton inner theme]
+
+\mode<presentation>
+
+
+\RequirePackage{keyval}
+\RequirePackage{calc}
+
+% Title page
+% ==========
+\defbeamertemplate*{title page}{princeton}[1][]
+{
+  \begin{tikzpicture}[remember picture,overlay]
+
+    % Background Image
+    % Old version
+    % \node[at=(current page.center),opacity=1] {\IfFileExists{\insercoverpicture}{\includegraphics[width=\paperwidth,height=\paperheight]{\insercoverpicture}}{\includegraphics[width=\paperwidth,height=\paperheight]{example-image-a}}};
+      % {\includegraphics[width=\paperwidth,height=\paperheight]{example-image-a}}};
+
+    % White border at the top
+    \fill[white](current page.north west) -- (current page.north east) --++(0,-8.3mm) -| (current page.north west) -- cycle;
+
+    % White border at the bottom
+    \fill[white](current page.south west) -- (current page.south east) --++(0,12.6mm) -| (current page.south west) -- cycle;
+
+    % Logo
+    \node[anchor= north east,inner sep=0pt]
+    at ($(current page.north east)-(1.5mm,1.2mm)$)
+    {\includegraphics[width=2cm]{princeton-logo-bw}};
+
+    % Author name
+    \node[anchor= south west,align=left,inner sep=0pt,font={\usebeamercolor[fg]{author}}] (p1)
+    at ($(current page.west)+(3.3mm,39mm)$)
+    {\usebeamerfont{author} \insertauthor};
+
+    % Author title
+    \node[align=left, inner sep=0pt,right=1.7mm of p1,font={\usebeamercolor[fg]{authortitle}}]
+    {\usebeamerfont{authortitle} \insertauthortitle};
+
+    % Title of the presentation
+    \node[anchor=south west,align=left, inner sep=0pt,font={\usebeamercolor[fg]{title}}]
+    at ($(current page.west)+(1mm,-40mm)$)
+    {\usebeamerfont{title} \inserttitle\phantom{y}};
+
+    % Subtitle of the presentation
+    \node[anchor=south west,align=left, inner sep=0pt,font={\usebeamercolor[fg]{subtitle}}]
+    at ($(current page.west)+(1.5mm,-44mm)$)
+    {\usebeamerfont{subtitle} \insertsubtitle\phantom{y}};
+
+
+    % Location
+    \node[anchor=south east,align=right, inner sep=0pt, font={\usebeamercolor[fg]{event}},]
+    at ($(current page.east)+(-1.5mm,-44mm)$)
+    {\usebeamerfont{event} \phantom{y} \insertlocation};
+
+    % Date
+    \node[anchor=south east,align=right, inner sep=0pt, font={\usebeamercolor[fg]{event}},]
+    at ($(current page.east)+(-1.5mm,-40.5mm)$)
+    {\usebeamerfont{event} \phantom{y} \insertdate};
+
+
+    % Event description
+    \node[anchor=south east,align=right, inner sep=0pt, font={\usebeamercolor[fg]{event}},]
+    at ($(current page.east)+(-1.5mm,-37.0mm)$)
+    {\usebeamerfont{event} \phantom{y} \insertevent};
+
+
+  \end{tikzpicture}
+}
+
+\renewcommand{\maketitle}{%
+  {
+  \setcounter{framenumber}{-1}
+  \backgroundimage{\insercoverpicture}
+  \ifbeamer@inframe
+    \thispagestyle{empty}\titlepage
+  \else
+    \frame{\thispagestyle{empty}\titlepage}
+  \fi
+  }
+}
+
+
+\mode<all>
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

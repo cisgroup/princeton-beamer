@@ -1,0 +1,136 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamercolorthemeprinceton}[2023/06/27 Princeton color theme]
+
+\mode<presentation>
+
+% Colors
+\definecolor{princeton@color@black}{RGB}{0,0,0}
+\definecolor{princeton@color@white}{RGB}{255, 255, 255}
+\definecolor{princeton@color@gray}{gray}{.4}
+\definecolor{princeton@color@mediumgray}{HTML}{888888}
+\definecolor{princeton@color@dimgray}{HTML}{BBBBBB}
+
+
+
+\definecolor{princeton@color@orange}{HTML}{EE7F2D}
+\definecolor{princeton@color@blue}{HTML}{006795}
+\definecolor{princeton@color@green}{HTML}{64b449} % green
+\definecolor{princeton@color@red}{HTML}{db5461} % red
+\definecolor{princeton@color@yellow}{HTML}{F6BD60}
+
+
+
+\definecolor{princeton@color@1}{HTML}{64b449} % green
+\definecolor{princeton@color@2}{HTML}{30ab89} % tuques
+\definecolor{princeton@color@3}{HTML}{009ecb} % blue
+
+
+\definecolor{princeton@color@theorem}{HTML}{64b449} % green
+\definecolor{princeton@color@proof}{HTML}{30ab89} % tuques
+\definecolor{princeton@color@lemma}{HTML}{009ecb} % blue
+
+\definecolor{princeton@color@corollary}{HTML}{db5461} % blue
+\definecolor{princeton@color@definition}{HTML}{F6BD60} % blue
+
+
+% Settings
+\setbeamercolor*{title page header}{fg=black}
+\setbeamercolor*{author}{fg=princeton@color@mediumgray}
+\setbeamercolor*{authortitle}{fg=princeton@color@dimgray}
+\setbeamercolor*{date}{fg=princeton@color@mediumgray}
+
+\setbeamercolor*{title}{fg=princeton@color@black}
+\setbeamercolor*{subtitle}{fg=princeton@color@mediumgray}
+\setbeamercolor*{event}{fg=princeton@color@mediumgray}
+
+\setbeamercolor*{frametitle}{fg=princeton@color@black}
+\setbeamercolor*{framesubtitle}{fg=princeton@color@mediumgray}
+% \setbeamercolor*{structure}{fg=black}
+
+\setbeamercolor*{footlinecolor}{fg=princeton@color@mediumgray,bg=}
+
+\setbeamercolor*{normal text}{fg=princeton@color@black}
+\setbeamercolor*{alerted text}{fg=princeton@color@orange}
+\setbeamercolor*{example text}{fg=princeton@color@green}
+
+\setbeamercolor*{section in toc}{parent=normal text}
+\setbeamercolor*{subsection in toc}{parent=normal text}
+\setbeamercolor*{subsubsection in toc}{parent=normal text}
+
+\setbeamercolor*{enumerate item}{parent=alerted text}
+\setbeamercolor*{enumerate subitem}{parent=alerted text}
+\setbeamercolor*{enumerate subsubitem}{parent=alerted text}
+
+\setbeamercolor*{itemize item}{parent=alerted text}
+\setbeamercolor*{itemize subitem}{parent=alerted text}
+\setbeamercolor*{itemize subsubitem}{parent=alerted text}
+
+\setbeamercolor*{bibliography item}{parent=normal text}
+\setbeamercolor*{bibliography entry title}{parent=normal text}
+\setbeamercolor*{bibliography entry author}{parent=normal text}
+\setbeamercolor*{bibliography entry location}{parent=normal text}
+\setbeamercolor*{bibliography entry note}{parent=normal text}
+
+\setbeamercolor*{caption name}{parent=normal text}
+
+\setbeamercolor{footline extra}{fg=princeton@color@mediumgray}
+
+
+\setbeamercolor{block title}{fg=princeton@color@gray,bg=princeton@color@gray!20!bg}
+\setbeamercolor{block body}{fg=black,bg=princeton@color@gray!7!bg}
+
+\setbeamercolor{block title alerted}{fg=princeton@color@orange,bg=princeton@color@orange!20!bg}
+\setbeamercolor{block body alerted}{fg=black,bg=princeton@color@orange!7!bg}
+
+\setbeamercolor{block title example}{fg=princeton@color@green,bg=princeton@color@green!20!bg}
+\setbeamercolor{block body example}{fg=black,bg=princeton@color@green!7!bg}
+
+\AtBeginEnvironment{exampleblock}{%
+  \setbeamercolor{block title}{fg=princeton@color@green,bg=princeton@color@green!20!bg}
+  \setbeamercolor{block body}{fg=black,bg=princeton@color@green!7!bg}
+  \setbeamercolor{alerted text}{fg=princeton@color@green}
+}
+
+\AtBeginEnvironment{block}{%
+  \setbeamercolor{alerted text}{fg=princeton@color@gray}
+  }
+
+\AtBeginEnvironment{theorem}{%
+  \setbeamercolor{block title}{fg=princeton@color@theorem,bg=princeton@color@theorem!20!bg}
+  \setbeamercolor{block body}{fg=black,bg=princeton@color@theorem!5!bg}
+  \setbeamercolor{alerted text}{fg=princeton@color@theorem}
+}
+
+\AtBeginEnvironment{proof}{%
+  \setbeamercolor{block title}{fg=princeton@color@proof,bg=princeton@color@proof!20!bg}
+  \setbeamercolor{block body}{fg=black,bg=princeton@color@proof!5!bg}
+  \setbeamercolor{alerted text}{fg=princeton@color@proof}
+}
+
+\AtBeginEnvironment{lemma}{%
+  \setbeamercolor{block title}{fg=princeton@color@lemma,bg=princeton@color@lemma!20!bg}
+  \setbeamercolor{block body}{fg=black,bg=princeton@color@lemma!5!bg}
+  \setbeamercolor{alerted text}{fg=princeton@color@lemma}
+}
+  
+\AtBeginEnvironment{corollary}{%
+  \setbeamercolor{block title}{fg=princeton@color@corollary,bg=princeton@color@corollary!20!bg}
+  \setbeamercolor{block body}{fg=black,bg=princeton@color@corollary!5!bg}
+  \setbeamercolor{alerted text}{fg=princeton@color@corollary}
+}
+
+\AtBeginEnvironment{definition}{%
+  \setbeamercolor{block title}{fg=princeton@color@definition,bg=princeton@color@definition!20!bg}
+  \setbeamercolor{block body}{fg=black,bg=princeton@color@definition!5!bg}
+  \setbeamercolor{alerted text}{fg=princeton@color@definition}
+}
+
+
+
+\mode<all>
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

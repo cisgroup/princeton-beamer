@@ -1,0 +1,41 @@
+# =============================================================================
+# File      : readme.org -- Readme of the princeton tex template
+# Author    : Jürgen Hackl <hackl@princeton.edu>
+# Time-stamp: <Fri 2024-05-03 16:18 juergen>
+# Copyright (c) 2023 Jürgen Hackl <hackl@princeton.edu>
+# =============================================================================
+#+OPTIONS: toc:nil
+#+OPTIONS: num:t
+#+OPTIONS: tags:nil
+#+TITLE: princeton-beamer
+#+SUBTITLE: LaTeX Template for Presentations
+#+AUTHOR: Jürgen Hackl
+#+EMAIL: <hackl@princeton.edu>
+
+# -----------------------------------------------------------------------------
+#+LATEX_COMPILER: lualatex
+#+LATEX_CLASS: princeton
+#+LATEX_CLASS_OPTIONS: [11pt]
+# =============================================================================
+* Introduction
+* Installation
+
+Installation for development on MacOS. 
+
+1. Create local path for custom latex classes
+
+#+begin_src 
+mkdir /Users/juergen/Library/texmf/tex/latex/
+#+end_src 
+
+2. Make symbolic link to the class file
+
+#+begin_src
+ln -s /Users/juergen/dev/princeton-beamer/princeton-logo-bw.pdf /Users/juergen/Library/texmf/tex/latex/
+ln -s /Users/juergen/dev/princeton-beamer/princeton-logo-shield-bw.pdf /Users/juergen/Library/texmf/tex/latex/
+ln -s /Users/juergen/dev/princeton-beamer/beamerthemeprinceton.sty /Users/juergen/Library/texmf/tex/latex/
+ln -s /Users/juergen/dev/princeton-beamer/beamercolorthemeprinceton.sty /Users/juergen/Library/texmf/tex/latex/
+ln -s /Users/juergen/dev/princeton-beamer/beamerfontthemeprinceton.sty /Users/juergen/Library/texmf/tex/latex/
+ln -s /Users/juergen/dev/princeton-beamer/beamerinnerthemeprinceton.sty /Users/juergen/Library/texmf/tex/latex/
+ln -s /Users/juergen/dev/princeton-beamer/beamerouterthemeprinceton.sty /Users/juergen/Library/texmf/tex/latex/
+#+end_src

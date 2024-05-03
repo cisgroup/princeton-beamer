@@ -1,0 +1,99 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerouterthemeprinceton}[2023/06/27 Princeton outer theme]
+\RequirePackage{ifthen}
+
+\mode<presentation>
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamersize{text margin left=20pt,text margin right=20pt}
+
+\setbeamertemplate{navigation symbols}{}
+
+
+
+\defbeamertemplate*{footline}{princetonfooterdefault}{%
+  \leavevmode%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{footlinecolor}
+    \raisebox{-.2\height}{\includegraphics[height=1em]{princeton-logo-shield-bw}}~
+    \insertauthorfooter
+    % 
+    \ifdefempty{\inserttitlefooter}{}{\hfill\inserttitlefooter}%
+    % 
+    \ifdefempty{\inserteventfooter}{}{\hfill\inserteventfooter}%
+    % 
+    \ifdefempty{\insertdatefooter}{}{\hfill\insertdatefooter}%
+    % 
+    \hfill\insertframenumber
+   \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}[princetonfooterdefault]
+
+% =============================================================================
+% extra footline for citations and image sources
+
+\newcommand{\footlineextra}[1]{\gdef\insertfootlineextra{#1}}
+\newbox\footlineextrabox
+
+% add a beamer template that sets the saved argument in a box.
+% The * means that the beamer font and color "footline extra" are automatically added.
+\defbeamertemplate*{footline extra}{default}{
+  \begin{beamercolorbox}[ht=2.25ex,dp=1ex,leftskip=0.30cm]{footline extra}
+    \insertfootlineextra
+  \end{beamercolorbox}
+}
+
+\addtobeamertemplate{footline}{%
+    % set the box with the extra footline material but make it add no vertical space
+    \setbox\footlineextrabox=\vbox{\usebeamertemplate*{footline extra}}
+    \vskip -\ht\footlineextrabox
+    \vskip -\dp\footlineextrabox
+    \box\footlineextrabox%
+}
+{}
+
+
+% patch \begin{frame} to reset the footline extra material
+\let\beamer@original@frame=\frame
+\def\frame{\gdef\insertfootlineextra{}\beamer@original@frame}
+\footlineextra{}
+\makeatother
+
+% =============================================================================
+% extra footline for citations and image sources
+% \setbeamertemplate{frametitle}
+% {
+% \insertframetitle
+% }
+
+% Reduce space between title and text
+\addtobeamertemplate{frametitle}{}{\vspace*{-.7ex}}
+
+
+% =============================================================================
+% format note text
+
+
+\setbeamertemplate{note page}{%\ \\[.3cm]
+\vspace{3mm}\begin{minipage}{\textwidth}
+  % \alert{\bf Notes:} \\
+{\footnotesize \let\small\footnotesize
+\insertnote}
+\end{minipage}
+}
+% \RequirePackage{multicol}
+% \setbeamertemplate{note page}{%\ \\[.3cm]
+%   \vspace{-6mm}
+% \begin{multicols}{2}
+% %\alert{\bf Notes:} \\
+% {\footnotesize \let\small\footnotesize
+% \insertnote}
+% \end{multicols}
+% }
+
+\mode<all>
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

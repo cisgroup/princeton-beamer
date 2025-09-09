@@ -1,0 +1,122 @@
+\documentclass[aspectratio=169]{beamer}
+\usefonttheme{professionalfonts}
+\usepackage[T1]{fontenc}
+\usepackage{annotate-equations}
+% \usepackage{polyglossia}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+% \usepackage{mathtools}
+% \usepackage[math-style=ISO, bold-style=ISO, sans-style=italic, nabla=upright, partial=upright]{unicode-math}
+% \setmathfont{Latin Modern Math}
+\newlength{\charAheight}
+\settoheight{\charAheight}{A}
+\usetheme[]{princeton}
+
+% \usepackage{blindtext}
+% \usepackage[export]{adjustbox}
+
+
+\title{The \texttt{princton} beamer theme}
+
+\subtitle{Example Presentation}
+
+\date{\today}
+
+\author[Hackl]{Prof. Dr. Jürgen Hackl}
+
+\institute[PU]{Princeton University}
+
+\authortitle{Dipl.-Ing. Dipl.-Ing. Dr.sc. ETH Z\"urich}
+
+\location{Princeton University}
+
+\event{Example Presentation}
+
+
+\authorfooter{Jürgen Hackl}
+\titlefooter{Example Slide Deck}
+\affiliationfooter{Princeton University}
+\eventfooter{Introduction to \texttt{pinceton} beamer}
+\datefooter{\today}
+
+
+\coverpicture{./test169.png}
+
+\begin{document}
+
+\maketitle
+
+\section{Overview}
+
+\begin{frame}[t]{Overview}
+  This presentation provides an overview of how to use the \texttt{princeton} beamer theme. 
+  It also serves as a unit test for developing further extensions to this package.
+  \begin{itemize}
+  \item Introduction to the \texttt{princeton} theme structure
+  \item Demonstration of available layout and style options
+  \item Guidance for slide layouts
+  \item Validation of functionality through example slides
+  \end{itemize}
+\end{frame}
+
+
+\section{Example Slides}
+
+\begin{frame}[t]{Example Slide}{How a slide could look like with the \texttt{princeton} beamer theme}
+
+  This is a generic slide with some text to show how a potential slide could look like.
+
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+
+      \begin{block}{Block Info}
+        Block elements are useful to show constraint information on a topic. The template supports \alert{block}, \alert{exampleblock} and \alert{alertblock}.
+      \end{block}
+
+      \begin{exampleblock}{Exampleblock}
+        Blocks can also have items or any other latex environment
+        \begin{itemize}
+        \item itemize
+        \item enumerate
+        \item description
+        \end{itemize}
+      \end{exampleblock}
+
+      \begin{alertblock}{Alertblock}
+        To highlight important content use the \alert{alert} command instead of \textbf{textbf}!
+      \end{alertblock}
+
+    \end{column}
+
+    \begin{column}{.4\textwidth}
+      \centering
+      \scriptsize
+      \renewcommand{\eqnannotationfont}{\sffamily\tiny}
+      \begin{equation*}
+        G_{M}(
+        \eqnmarkbox[princeton@color@orange]{nVM}{V_{M}}
+        ,
+        \eqnmarkbox[princeton@color@blue]{nEM}{E_{M}}
+        )
+      \end{equation*}
+      \annotate[yshift=-0em]{above,left, label below}{nVM}{vertices}
+      \annotate[yshift=-0em]{above,label below}{nEM}{edges}
+      
+      \includegraphics[width=\textwidth]{example-image-a}
+
+    \end{column}
+  \end{columns}
+
+  \footlineextra{Add references, images sources or other secondary information into the footer!}
+\end{frame}
+
+
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

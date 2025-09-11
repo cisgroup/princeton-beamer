@@ -40,7 +40,7 @@
 \datefooter{\today}
 
 
-\coverpicture{./test169.png}
+\coverpicture{./test169.jpg}
 
 \begin{document}
 
@@ -61,6 +61,10 @@
 
 
 \section{Example Slides}
+% ========================
+
+\subsection{Example 01}
+% ----------------------
 
 \begin{frame}[t]{Example Slide \multipage{1/2}}{How a slide could look like with the \texttt{princeton} beamer theme}
 
@@ -110,49 +114,29 @@
   \footlineextra{Add references, images sources or other secondary information into the footer!}
 \end{frame}
 
+\subsection{Example 02}
+% ----------------------
 
-
-\begin{frame}[t]{Example Slide with a very long title why is the thing not \multipage{2/2}}{Two column 50/50 split with images}
-
-  This is a generic slide with some text to show how a potential slide could look like.
+\begin{frame}[t]{Example Slide \multipage{2/2}}{Two columns, with 50/50 split including images}
 
   \begin{columns}[T]
-    \begin{column}{.6\textwidth}
+    \begin{column}{.5\textwidth}
 
-      \begin{block}{Block Info}
-        Block elements are useful to show constraint information on a topic. The template supports \alert{block}, \alert{exampleblock} and \alert{alertblock}.
-      \end{block}
+      \includegraphics[width=\textwidth]{example-image-a}
 
-      \begin{exampleblock}{Exampleblock}
-        Blocks can also have items or any other latex environment
-        \begin{itemize}
-        \item itemize
-        \item enumerate
-        \item description
-        \end{itemize}
+      \begin{exampleblock}{Image A}
+        Something about \alert{Image A}
       \end{exampleblock}
-
-      \begin{alertblock}{Alertblock}
-        To highlight important content use the \alert{alert} command instead of \textbf{textbf}!
-      \end{alertblock}
 
     \end{column}
 
-    \begin{column}{.4\textwidth}
-      \centering
-      \scriptsize
-      \renewcommand{\eqnannotationfont}{\sffamily\tiny}
-      \begin{equation*}
-        G_{M}(
-        \eqnmarkbox[princeton@color@orange]{nVM}{V_{M}}
-        ,
-        \eqnmarkbox[princeton@color@blue]{nEM}{E_{M}}
-        )
-      \end{equation*}
-      \annotate[yshift=-0em]{above,left, label below}{nVM}{vertices}
-      \annotate[yshift=-0em]{above,label below}{nEM}{edges}
-      
-      \includegraphics[width=\textwidth]{example-image-a}
+    \begin{column}{.5\textwidth}
+
+      \includegraphics[width=\textwidth]{example-image-b}
+
+      \begin{alertblock}{Image B}
+        Something about \alert{Image B}
+      \end{alertblock}
 
     \end{column}
   \end{columns}
@@ -160,6 +144,8 @@
   \footlineextra{Add references, images sources or other secondary information into the footer!}
 \end{frame}
 
+
+\section{iframe Environment}
 
 
 

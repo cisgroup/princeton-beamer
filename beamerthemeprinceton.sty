@@ -57,8 +57,9 @@
 \define@key{iframe}{image}{\def\iframe@image{#1}}%
 \define@key{iframe}{xshift}{\setlength\iframe@xshift{#1}}
 \define@key{iframe}{yshift}{\setlength\iframe@yshift{#1}}
-
-\setkeys{iframe}{image=example-image-a,xshift=0pt,yshift=0pt}%
+\define@key{iframe}{opacity}{\def\iframe@opacity{#1}}%
+    
+\setkeys{iframe}{image=example-image-a,xshift=0pt,yshift=0pt,opacity=1}%
 
 
 % Optional argument will be split between <;>
@@ -74,6 +75,7 @@
     \backgroundimage[%
     xshift=\iframe@xshift,
       yshift=\iframe@yshift,
+        opacity=\iframe@opacity,
       ]{\iframe@image}%
 
     \IfValueTF{#1}{% True Overlay

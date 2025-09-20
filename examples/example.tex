@@ -2,6 +2,7 @@
 \usefonttheme{professionalfonts}
 \usepackage[T1]{fontenc}
 \usepackage{annotate-equations}
+\usepackage{listings}
 % \usepackage{polyglossia}
 % \usepackage{amsmath}
 % \usepackage{amssymb}
@@ -38,7 +39,6 @@
 \affiliationfooter{Princeton University}
 \eventfooter{Introduction to \texttt{pinceton} beamer}
 \datefooter{\today}
-
 
 \coverpicture{./test169.jpg}
 
@@ -146,10 +146,125 @@
 
 
 \section{iframe Environment}
+% ============================
 
-\begin{iframe}<beamer>[t]{The iframe Environment}[image=test169.jpg,opacity=.5]
-  test
+\begin{iframe}<beamer>[t,fragile]{The iframe Environment}[image=test169.jpg,opacity=.2]
+  \begin{example}
+    \begin{lstlisting}
+% \begin{iframe}<beamer>[t]{The iframe Environment}[image=test169.jpg,opacity=.2]
+%   Content of the slide
+% \end{iframe}
+    \end{lstlisting}
+  \end{example}
 \end{iframe}
+
+\begin{iframe}[t]{The iframe Environment}[image=test169.jpg,opacity=.2,xshift=-8cm]
+  \begin{example}
+    \begin{lstlisting}
+% \begin{iframe}[t]{The iframe Environment}[image=test169.jpg,opacity=.2,xshift=-8cm]
+%   Content of the slide
+% \end{iframe}
+    \end{lstlisting}
+  \end{example}
+\end{iframe}
+
+
+\section{Colors}
+% ===============
+\begin{frame}[t]{Colors}{Available color options}
+
+  The \texttt{princeton} beamer theme provides various color options starting with the command \texttt{princeton@color@}. The following color options are available:
+
+  \begin{columns}[T]
+    \begin{column}{.5\textwidth}
+      \begin{block}{Defined Colors}
+        \begin{itemize}
+        \item \textcolor{princeton@color@orange}{\texttt{princeton@color@orange}}
+        \item \textcolor{princeton@color@blue}{\texttt{princeton@color@blue}}
+        \item \textcolor{princeton@color@tuques}{\texttt{princeton@color@tuques}}
+        \item \textcolor{princeton@color@green}{\texttt{princeton@color@green}}
+        \item \textcolor{princeton@color@red}{\texttt{princeton@color@red}}
+        \item \textcolor{princeton@color@yellow}{\texttt{princeton@color@yellow}}
+        \item \textcolor{princeton@color@black}{\texttt{princeton@color@black}}
+        \item \textcolor{princeton@color@white}{\texttt{princeton@color@white}}
+        \item \textcolor{princeton@color@gray}{\texttt{princeton@color@gray}}
+        \item \textcolor{princeton@color@mediumgray}{\texttt{princeton@color@mediumgray}}
+        \item \textcolor{princeton@color@dimgray}{\texttt{princeton@color@dimgray}}
+        \end{itemize}
+      \end{block}
+    \end{column}
+
+    \begin{column}{.5\textwidth}
+      \begin{block}{Iterative Colors}
+        \begin{itemize}
+        \item \textcolor{princeton@color@1}{\texttt{princeton@color@1}}
+        \item \textcolor{princeton@color@2}{\texttt{princeton@color@2}}
+        \item \textcolor{princeton@color@3}{\texttt{princeton@color@3}}
+        % \item \textcolor{princeton@color@red}{\texttt{princeton@color@red}}
+        % \item \textcolor{princeton@color@yellow}{\texttt{princeton@color@yellow}}
+        % \item \textcolor{princeton@color@black}{\texttt{princeton@color@black}}
+        % \item \textcolor{princeton@color@white}{\texttt{princeton@color@white}}
+        % \item \textcolor{princeton@color@gray}{\texttt{princeton@color@gray}}
+        % \item \textcolor{princeton@color@mediumgray}{\texttt{princeton@color@mediumgray}}
+        % \item \textcolor{princeton@color@dimgray}{\texttt{princeton@color@dimgray}}
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\section{Environments}
+% ===============
+\begin{frame}[t]{Environments}{Blocks, Theorems, Proofs and other Environments}
+
+  \begin{columns}[T]
+    \begin{column}{.5\textwidth}
+      \begin{block}{\texttt{block} with variable title}
+        This is an \alert{example text}.
+      \end{block}
+
+      \begin{alertblock}{\texttt{alertblock} with variable title}
+        This is an \alert{example text}.
+      \end{alertblock}
+
+      \begin{exampleblock}{\texttt{exampleblock} with variable title}
+        This is an \alert{example text}.
+      \end{exampleblock}
+    \end{column}
+
+    \begin{column}{.5\textwidth}
+
+      \begin{definition}
+        This is an \alert{example text}.
+      \end{definition}
+
+      \begin{lemma}
+        This is an \alert{example text}.
+      \end{lemma}
+
+      \begin{theorem}
+        This is an \alert{example text}.
+      \end{theorem}
+
+      \begin{corollary}
+        This is an \alert{example text}.
+      \end{corollary}
+
+      \begin{proof}
+        This is an \alert{example text}.
+      \end{proof}
+
+      % \begin{example}
+      %   This is an \alert{example text}.
+      % \end{example}
+
+
+    \end{column}
+  \end{columns}
+
+\end{frame}
 
 
 

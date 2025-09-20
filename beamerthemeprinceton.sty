@@ -3,6 +3,14 @@
 
 \mode<presentation>
 
+% Class Options
+\DeclareOptionBeamer{style}{
+    \PassOptionsToPackage{style=#1}{beamercolorthemeprinceton}
+}
+\ExecuteOptionsBeamer{style=default}
+\ProcessOptionsBeamer
+
+
 % Requirement
 \RequirePackage{tikz}
 

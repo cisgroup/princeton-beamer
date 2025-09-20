@@ -11,7 +11,11 @@
 % \setmathfont{Latin Modern Math}
 \newlength{\charAheight}
 \settoheight{\charAheight}{A}
-\usetheme[]{princeton}
+\usetheme[
+% style=viridis,
+% style=monochrome,
+style=default,
+]{princeton}
 
 % \usepackage{blindtext}
 % \usepackage[export]{adjustbox}
@@ -98,9 +102,9 @@
       \renewcommand{\eqnannotationfont}{\sffamily\tiny}
       \begin{equation*}
         G_{M}(
-        \eqnmarkbox[princeton@color@orange]{nVM}{V_{M}}
+        \eqnmarkbox[princeton@color@first]{nVM}{V_{M}}
         ,
-        \eqnmarkbox[princeton@color@blue]{nEM}{E_{M}}
+        \eqnmarkbox[princeton@color@second]{nEM}{E_{M}}
         )
       \end{equation*}
       \annotate[yshift=-0em]{above,left, label below}{nVM}{vertices}
@@ -171,48 +175,112 @@
 
 \section{Colors}
 % ===============
-\begin{frame}[t]{Colors}{Available color options}
+\begin{frame}[t]{Colors \multipage{1/2}}{Available color options}
 
   The \texttt{princeton} beamer theme provides various color options starting with the command \texttt{princeton@color@}. The following color options are available:
 
   \begin{columns}[T]
-    \begin{column}{.5\textwidth}
-      \begin{block}{Defined Colors}
+    \begin{column}{.33\textwidth}
+      \begin{block}{Default Colors}
         \begin{itemize}
-        \item \textcolor{princeton@color@orange}{\texttt{princeton@color@orange}}
-        \item \textcolor{princeton@color@blue}{\texttt{princeton@color@blue}}
-        \item \textcolor{princeton@color@tuques}{\texttt{princeton@color@tuques}}
-        \item \textcolor{princeton@color@green}{\texttt{princeton@color@green}}
         \item \textcolor{princeton@color@red}{\texttt{princeton@color@red}}
+        \item \textcolor{princeton@color@orange}{\texttt{princeton@color@orange}}
         \item \textcolor{princeton@color@yellow}{\texttt{princeton@color@yellow}}
-        \item \textcolor{princeton@color@black}{\texttt{princeton@color@black}}
-        \item \textcolor{princeton@color@white}{\texttt{princeton@color@white}}
-        \item \textcolor{princeton@color@gray}{\texttt{princeton@color@gray}}
+        \item \textcolor{princeton@color@green}{\texttt{princeton@color@green}}
+        \item \textcolor{princeton@color@tuques}{\texttt{princeton@color@tuques}}
+        \item \textcolor{princeton@color@blue}{\texttt{princeton@color@blue}}
         \item \textcolor{princeton@color@mediumgray}{\texttt{princeton@color@mediumgray}}
+        \item \textcolor{princeton@color@gray}{\texttt{princeton@color@gray}}
+        \item \textcolor{princeton@color@black}{\texttt{princeton@color@black}}
         \item \textcolor{princeton@color@dimgray}{\texttt{princeton@color@dimgray}}
+        \item \textcolor{princeton@color@white}{\texttt{princeton@color@white}}
         \end{itemize}
       \end{block}
     \end{column}
 
-    \begin{column}{.5\textwidth}
-      \begin{block}{Iterative Colors}
+    \begin{column}{.33\textwidth}
+      \begin{block}{Viridis Color Palette}
         \begin{itemize}
-        \item \textcolor{princeton@color@1}{\texttt{princeton@color@1}}
-        \item \textcolor{princeton@color@2}{\texttt{princeton@color@2}}
-        \item \textcolor{princeton@color@3}{\texttt{princeton@color@3}}
-        % \item \textcolor{princeton@color@red}{\texttt{princeton@color@red}}
-        % \item \textcolor{princeton@color@yellow}{\texttt{princeton@color@yellow}}
-        % \item \textcolor{princeton@color@black}{\texttt{princeton@color@black}}
-        % \item \textcolor{princeton@color@white}{\texttt{princeton@color@white}}
-        % \item \textcolor{princeton@color@gray}{\texttt{princeton@color@gray}}
-        % \item \textcolor{princeton@color@mediumgray}{\texttt{princeton@color@mediumgray}}
-        % \item \textcolor{princeton@color@dimgray}{\texttt{princeton@color@dimgray}}
+        \item \textcolor{princeton@color@viridis@1}{\texttt{princeton@color@viridis@1}}
+        \item \textcolor{princeton@color@viridis@2}{\texttt{princeton@color@viridis@2}}
+        \item \textcolor{princeton@color@viridis@3}{\texttt{princeton@color@viridis@3}}
+        \item \textcolor{princeton@color@viridis@4}{\texttt{princeton@color@viridis@4}}
+        \item \textcolor{princeton@color@viridis@5}{\texttt{princeton@color@viridis@5}}
+        \item \textcolor{princeton@color@viridis@6}{\texttt{princeton@color@viridis@6}}
+        \item \textcolor{princeton@color@viridis@7}{\texttt{princeton@color@viridis@7}}
+        \item \textcolor{princeton@color@viridis@8}{\texttt{princeton@color@viridis@8}}
+        \item \textcolor{princeton@color@viridis@9}{\texttt{princeton@color@viridis@9}}
+        \end{itemize}
+      \end{block}
+    \end{column}
+
+    \begin{column}{.33\textwidth}
+      \begin{block}{Monochrome Color Palette}
+        \begin{itemize}
+        \item \textcolor{princeton@color@mono@1}{\texttt{princeton@color@mono@1}}
+        \item \textcolor{princeton@color@mono@2}{\texttt{princeton@color@mono@2}}
+        \item \textcolor{princeton@color@mono@3}{\texttt{princeton@color@mono@3}}
+        \item \textcolor{princeton@color@mono@4}{\texttt{princeton@color@mono@4}}
+        \item \textcolor{princeton@color@mono@5}{\texttt{princeton@color@mono@5}}
+        \item \textcolor{princeton@color@mono@6}{\texttt{princeton@color@mono@6}}
+        \item \textcolor{princeton@color@mono@7}{\texttt{princeton@color@mono@7}}
+        \item \textcolor{princeton@color@mono@8}{\texttt{princeton@color@mono@8}}
+        \item \textcolor{princeton@color@mono@9}{\texttt{princeton@color@mono@9}}
         \end{itemize}
       \end{block}
     \end{column}
   \end{columns}
 
 \end{frame}
+
+\begin{frame}[t,fragile]{Colors \multipage{2/2}}{Color Themes}
+
+The \texttt{princeton} beamer theme currently supports three different color themes \texttt{default}, \texttt{viridis} and \texttt{monochrome}. Default colors and color palettes will change accordingly!
+
+\begin{columns}[T]
+  \begin{column}{.33\textwidth}
+    \begin{example}
+\begin{lstlisting}
+\usetheme[
+% style=viridis,
+% style=monochrome,
+style=default,
+]{princeton}
+\end{lstlisting}
+    \end{example}
+  \end{column}
+  
+  \begin{column}{.33\textwidth}
+    \begin{block}{Default Colors}
+      \begin{itemize}
+      \item \textcolor{princeton@color@first}{\texttt{princeton@color@first}}
+      \item \textcolor{princeton@color@second}{\texttt{princeton@color@second}}
+      \item \textcolor{princeton@color@third}{\texttt{princeton@color@third}}
+      \item \textcolor{princeton@color@fourth}{\texttt{princeton@color@fourth}}
+      \item \textcolor{princeton@color@fifth}{\texttt{princeton@color@fifth}}
+      \end{itemize}
+    \end{block}
+  \end{column}
+
+  \begin{column}{.33\textwidth}
+    \begin{block}{Color Palette}
+        \begin{itemize}
+        \item \textcolor{princeton@color@1}{\texttt{princeton@color@1}}
+        \item \textcolor{princeton@color@2}{\texttt{princeton@color@2}}
+        \item \textcolor{princeton@color@3}{\texttt{princeton@color@3}}
+        \item \textcolor{princeton@color@4}{\texttt{princeton@color@4}}
+        \item \textcolor{princeton@color@5}{\texttt{princeton@color@5}}
+        \item \textcolor{princeton@color@6}{\texttt{princeton@color@6}}
+        \item \textcolor{princeton@color@7}{\texttt{princeton@color@7}}
+        \item \textcolor{princeton@color@8}{\texttt{princeton@color@8}}
+        \item \textcolor{princeton@color@9}{\texttt{princeton@color@9}}
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
 
 
 \section{Environments}

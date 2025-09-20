@@ -3,6 +3,14 @@
 
 \mode<presentation>
 
+\DeclareOptionBeamer{style}{\def\beamer@princeton@style{#1}}
+\ExecuteOptionsBeamer{style=default} % blue will be default if nothing is given
+\ProcessOptionsBeamer
+
+\def\beamer@princeton@style@viridis{viridis}%
+\def\beamer@princeton@style@default{default}%
+\def\beamer@princeton@style@mono{monochrome}%
+
 % Colors
 \definecolor{princeton@color@black}{RGB}{0,0,0}
 \definecolor{princeton@color@white}{RGB}{255, 255, 255}
@@ -10,25 +18,136 @@
 \definecolor{princeton@color@mediumgray}{HTML}{888888}
 \definecolor{princeton@color@dimgray}{HTML}{BBBBBB}
 
-
-
+% Default Colors
 \definecolor{princeton@color@orange}{HTML}{EE7F2D}
 \definecolor{princeton@color@blue}{HTML}{006795}
-\definecolor{princeton@color@green}{HTML}{64b449} % green
-\definecolor{princeton@color@red}{HTML}{db5461} % red
+\definecolor{princeton@color@green}{HTML}{64b449}
+\definecolor{princeton@color@red}{HTML}{db5461}
 \definecolor{princeton@color@yellow}{HTML}{F6BD60}
-\definecolor{princeton@color@tuques}{HTML}{30ab89} % tuques
-\definecolor{princeton@color@lightblue}{HTML}{009ecb} % blue
+\definecolor{princeton@color@tuques}{HTML}{30ab89}
+\definecolor{princeton@color@lightblue}{HTML}{009ecb}
 
-\colorlet{princeton@color@1}{princeton@color@green}
-\colorlet{princeton@color@2}{princeton@color@tuques}
-\colorlet{princeton@color@3}{princeton@color@blue}
+% Viridis Color Palette
+\definecolor{princeton@color@viridis@1}{HTML}{fde725}
+\definecolor{princeton@color@viridis@2}{HTML}{addc30}
+\definecolor{princeton@color@viridis@3}{HTML}{5ec962}
+\definecolor{princeton@color@viridis@4}{HTML}{28ae80}
+\definecolor{princeton@color@viridis@5}{HTML}{21918c}
+\definecolor{princeton@color@viridis@6}{HTML}{2c728e}
+\definecolor{princeton@color@viridis@7}{HTML}{3b528b}
+\definecolor{princeton@color@viridis@8}{HTML}{472d7b}
+\definecolor{princeton@color@viridis@9}{HTML}{440154}
 
-\colorlet{princeton@color@definition}{princeton@color@yellow} % blue
-\colorlet{princeton@color@lemma}{princeton@color@green} % blue
-\colorlet{princeton@color@theorem}{princeton@color@tuques} % green
-\colorlet{princeton@color@corollary}{princeton@color@blue} % blue
-\colorlet{princeton@color@proof}{princeton@color@red} % tuques
+% Monochrome Color Palette
+\definecolor{princeton@color@mono@1}{HTML}{f9dcb0}
+\definecolor{princeton@color@mono@2}{HTML}{f5c67e}
+\definecolor{princeton@color@mono@3}{HTML}{f1b04c}
+\definecolor{princeton@color@mono@4}{HTML}{ee9f28}
+\definecolor{princeton@color@mono@5}{HTML}{ec9105}
+\definecolor{princeton@color@mono@6}{HTML}{e88504}
+\definecolor{princeton@color@mono@7}{HTML}{e17602}
+\definecolor{princeton@color@mono@8}{HTML}{dc6602}
+\definecolor{princeton@color@mono@9}{HTML}{d24f01}
+
+
+% Gray Color Palette
+\definecolor{princeton@color@gray@1}{HTML}{e5e5e5}
+\definecolor{princeton@color@gray@2}{HTML}{cccccc}
+\definecolor{princeton@color@gray@3}{HTML}{b2b2b2}
+\definecolor{princeton@color@gray@4}{HTML}{999999}
+\definecolor{princeton@color@gray@5}{HTML}{808080}
+\definecolor{princeton@color@gray@6}{HTML}{666666}
+\definecolor{princeton@color@gray@7}{HTML}{4d4d4d}
+\definecolor{princeton@color@gray@8}{HTML}{333333}
+\definecolor{princeton@color@gray@9}{HTML}{1a1a1a}
+
+
+
+% define colors based on themes
+% Color theme viridis
+\ifx\beamer@princeton@style\beamer@princeton@style@viridis%
+  \colorlet{princeton@color@alert}{princeton@color@viridis@5}
+  \colorlet{princeton@color@example}{princeton@color@viridis@3}
+  \colorlet{princeton@color@block}{princeton@color@gray}
+  % 
+  \colorlet{princeton@color@definition}{princeton@color@viridis@1}
+  \colorlet{princeton@color@lemma}{princeton@color@viridis@2}
+  \colorlet{princeton@color@theorem}{princeton@color@viridis@3}
+  \colorlet{princeton@color@corollary}{princeton@color@viridis@7}
+  \colorlet{princeton@color@proof}{princeton@color@viridis@8}
+  %
+  \colorlet{princeton@color@1}{princeton@color@viridis@1}
+  \colorlet{princeton@color@2}{princeton@color@viridis@2}
+  \colorlet{princeton@color@3}{princeton@color@viridis@3}
+  \colorlet{princeton@color@4}{princeton@color@viridis@4}
+  \colorlet{princeton@color@5}{princeton@color@viridis@5}
+  \colorlet{princeton@color@6}{princeton@color@viridis@6}
+  \colorlet{princeton@color@7}{princeton@color@viridis@7}
+  \colorlet{princeton@color@8}{princeton@color@viridis@8}
+  \colorlet{princeton@color@9}{princeton@color@viridis@9}
+  %
+  \colorlet{princeton@color@first}{princeton@color@viridis@3}
+  \colorlet{princeton@color@second}{princeton@color@viridis@5}
+  \colorlet{princeton@color@third}{princeton@color@viridis@7}
+  \colorlet{princeton@color@fourth}{princeton@color@viridis@9}
+  \colorlet{princeton@color@fifth}{princeton@color@viridis@1}
+\else%
+  % Color theme monochrome
+  \ifx\beamer@princeton@style\beamer@princeton@style@mono%
+    \colorlet{princeton@color@alert}{princeton@color@mono@9}
+    \colorlet{princeton@color@example}{princeton@color@mono@5}
+    \colorlet{princeton@color@block}{princeton@color@gray}
+    % 
+    \colorlet{princeton@color@definition}{princeton@color@mono@1}
+    \colorlet{princeton@color@lemma}{princeton@color@mono@2}
+    \colorlet{princeton@color@theorem}{princeton@color@mono@3}
+    \colorlet{princeton@color@corollary}{princeton@color@mono@7}
+    \colorlet{princeton@color@proof}{princeton@color@mono@8}
+    % 
+    \colorlet{princeton@color@1}{princeton@color@mono@1}
+    \colorlet{princeton@color@2}{princeton@color@mono@2}
+    \colorlet{princeton@color@3}{princeton@color@mono@3}
+    \colorlet{princeton@color@4}{princeton@color@mono@4}
+    \colorlet{princeton@color@5}{princeton@color@mono@5}
+    \colorlet{princeton@color@6}{princeton@color@mono@6}
+    \colorlet{princeton@color@7}{princeton@color@mono@7}
+    \colorlet{princeton@color@8}{princeton@color@mono@8}
+    \colorlet{princeton@color@9}{princeton@color@mono@9}
+    %
+    \colorlet{princeton@color@first}{princeton@color@mono@5}
+    \colorlet{princeton@color@second}{princeton@color@gray@5}
+    \colorlet{princeton@color@third}{princeton@color@mono@9}
+    \colorlet{princeton@color@fourth}{princeton@color@gray@9}
+    \colorlet{princeton@color@fifth}{princeton@color@mono@1}
+  \else%
+    % Default color theme
+    \colorlet{princeton@color@alert}{princeton@color@orange}
+    \colorlet{princeton@color@example}{princeton@color@green}
+    \colorlet{princeton@color@block}{princeton@color@gray}
+    %
+    \colorlet{princeton@color@definition}{princeton@color@yellow}
+    \colorlet{princeton@color@lemma}{princeton@color@green}
+    \colorlet{princeton@color@theorem}{princeton@color@tuques}
+    \colorlet{princeton@color@corollary}{princeton@color@blue}
+    \colorlet{princeton@color@proof}{princeton@color@red}
+    %
+    \colorlet{princeton@color@1}{princeton@color@red}
+    \colorlet{princeton@color@2}{princeton@color@orange}
+    \colorlet{princeton@color@3}{princeton@color@yellow}
+    \colorlet{princeton@color@4}{princeton@color@green}
+    \colorlet{princeton@color@5}{princeton@color@tuques}
+    \colorlet{princeton@color@6}{princeton@color@blue}
+    \colorlet{princeton@color@7}{princeton@color@mediumgray}
+    \colorlet{princeton@color@8}{princeton@color@gray}
+    \colorlet{princeton@color@9}{princeton@color@black}
+    %
+    \colorlet{princeton@color@first}{princeton@color@orange}
+    \colorlet{princeton@color@second}{princeton@color@green}
+    \colorlet{princeton@color@third}{princeton@color@tuques}
+    \colorlet{princeton@color@fourth}{princeton@color@blue}
+    \colorlet{princeton@color@fifth}{princeton@color@gray}
+  \fi%
+\fi%
 
 
 % Settings
@@ -48,8 +167,8 @@
 \setbeamercolor*{footlinecolor}{fg=princeton@color@mediumgray,bg=}
 
 \setbeamercolor*{normal text}{fg=princeton@color@black}
-\setbeamercolor*{alerted text}{fg=princeton@color@orange}
-\setbeamercolor*{example text}{fg=princeton@color@green}
+\setbeamercolor*{alerted text}{fg=princeton@color@alert}
+\setbeamercolor*{example text}{fg=princeton@color@example}
 
 \setbeamercolor*{section in toc}{parent=normal text}
 \setbeamercolor*{subsection in toc}{parent=normal text}
@@ -74,23 +193,23 @@
 \setbeamercolor{footline extra}{fg=princeton@color@mediumgray}
 
 
-\setbeamercolor{block title}{fg=princeton@color@gray,bg=princeton@color@gray!20!bg}
-\setbeamercolor{block body}{fg=black,bg=princeton@color@gray!7!bg}
+\setbeamercolor{block title}{fg=princeton@color@block,bg=princeton@color@block!20!bg}
+\setbeamercolor{block body}{fg=black,bg=princeton@color@block!7!bg}
 
-\setbeamercolor{block title alerted}{fg=princeton@color@orange,bg=princeton@color@orange!20!bg}
-\setbeamercolor{block body alerted}{fg=black,bg=princeton@color@orange!7!bg}
+\setbeamercolor{block title alerted}{fg=princeton@color@alert,bg=princeton@color@alert!20!bg}
+\setbeamercolor{block body alerted}{fg=black,bg=princeton@color@alert!7!bg}
 
-\setbeamercolor{block title example}{fg=princeton@color@green,bg=princeton@color@green!20!bg}
-\setbeamercolor{block body example}{fg=black,bg=princeton@color@green!7!bg}
+\setbeamercolor{block title example}{fg=princeton@color@example,bg=princeton@color@example!20!bg}
+\setbeamercolor{block body example}{fg=black,bg=princeton@color@example!7!bg}
 
 \AtBeginEnvironment{exampleblock}{%
-  \setbeamercolor{block title}{fg=princeton@color@green,bg=princeton@color@green!20!bg}
-  \setbeamercolor{block body}{fg=black,bg=princeton@color@green!7!bg}
-  \setbeamercolor{alerted text}{fg=princeton@color@green}
+  \setbeamercolor{block title}{fg=princeton@color@example,bg=princeton@color@example!20!bg}
+  \setbeamercolor{block body}{fg=black,bg=princeton@color@example!7!bg}
+  \setbeamercolor{alerted text}{fg=princeton@color@example}
 }
 
 \AtBeginEnvironment{block}{%
-  \setbeamercolor{alerted text}{fg=princeton@color@gray}
+  \setbeamercolor{alerted text}{fg=princeton@color@block}
   }
 
 \AtBeginEnvironment{theorem}{%

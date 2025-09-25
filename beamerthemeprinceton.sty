@@ -17,6 +17,7 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
 
+\RequirePackage[outline]{contour}
 \RequirePackage{backgroundimage}
 
 % Variables
@@ -111,6 +112,56 @@
     \IfValueT{#2}{\setkeys{iframe}{#2}}
   }
 
+
+% Create section frame command
+% ----------------------------
+
+\newif\ifsectionframe@contour
+\sectionframe@contourfalse
+  
+\define@key{sectionframe}{image}{\def\sectionframe@image{#1}}%
+\define@key{sectionframe}{opacity}{\def\sectionframe@opacity{#1}}%
+\define@key{sectionframe}{color}{\def\sectionframe@color{#1}}%
+\define@key{sectionframe}{contourcolor}{\def\sectionframe@contourcolor{#1}}%
+\define@key{sectionframe}{contourlength}{\def\sectionframe@contourlength{#1}}%
+\define@key{sectionframe}{contour}[true]{%
+  \csname sectionframe@contour#1\endcsname
+}
+
+
+\setkeys{sectionframe}{image=example-image-a,opacity=1,color=black, contourcolor=white, contourlength=1.4pt}%
+
+\NewDocumentCommand{\sectionframe}{s o m o o}{
+  \IfValueT{#4}{\setkeys{sectionframe}{#4}}
+  {
+  \backgroundimage[%
+  opacity=\sectionframe@opacity,
+  ]{\sectionframe@image}%
+  \contourlength{\sectionframe@contourlength}
+  \begin{frame}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor= south west,align=left,inner sep=0pt,font={\normalsize\bf},\sectionframe@color] (p1)
+      at ($(current page.west)+(6mm,-25.5mm)$)
+      {
+        \IfValueT{#2}{\textit{
+            \ifsectionframe@contour\contour{\sectionframe@contourcolor}{#2}\else#2\fi
+          }
+        }
+      };
+      \node[anchor= south west,align=left,inner sep=0pt,font={\LARGE},\sectionframe@color] (p1)
+      at ($(current page.west)+(5.7mm,-31mm)$)
+      {\textbf{
+          \ifsectionframe@contour\contour{\sectionframe@contourcolor}{#3}\else#3\fi
+        }};
+    \end{tikzpicture}
+    \IfValueT{#5}{\footlineextra{#5}}
+    \note{}
+  \end{frame}
+  }
+}
+  
+
+  
 % Fix indent of items
 
 \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
@@ -140,9 +191,9 @@
 
 
 % new commands 
-  \newcommand{\citetext}[1]{ {\scriptsize \hfill\color{princeton@color@1}  $\rightarrow$ #1 } }
+  \newcommand{\citetext}[1]{ {\scriptsize \hfill\color{princeton@color@second}  $\rightarrow$ #1 } }
 
-  \newcommand{\alertmath}[1]{ {\color{princeton@color@orange}\bm{#1} } }
+  \newcommand{\alertmath}[1]{ {\color{princeton@color@first}\bm{#1} } }
 
   \newcommand{\multipage}[1]{\hskip0pt plus 1filll \color{princeton@color@gray} #1}
 \mode<all>

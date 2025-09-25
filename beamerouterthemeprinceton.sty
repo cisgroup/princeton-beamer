@@ -67,8 +67,10 @@
 % \insertframetitle
 % }
 
-% Reduce space between title and text
-% \addtobeamertemplate{frametitle}{}{\vspace*{-.7ex}}
+%   Reduce space between title and text
+\newlength{\titlespacing}
+\setlength{\titlespacing}{0pt}
+\addtobeamertemplate{frametitle}{}{\vspace*{\titlespacing}}
 
 
 % =============================================================================
@@ -91,6 +93,7 @@
 % \insertnote}
 % \end{multicols}
 % }
+
 
 \mode<all>
 
